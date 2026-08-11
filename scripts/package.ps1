@@ -30,7 +30,7 @@ if (-not (Test-Path -LiteralPath $mainBundle -PathType Leaf)) {
 }
 
 $distFiles = Get-ChildItem -LiteralPath $distPath -Recurse -File |
-  Where-Object { $_.Extension -ne '.zip' } |
+  Where-Object { $_.Extension -notin @('.zip', '.sha256') } |
   Sort-Object FullName
 
 $distPrefix = $distPath.TrimEnd('\', '/') + [System.IO.Path]::DirectorySeparatorChar

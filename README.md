@@ -73,7 +73,7 @@ The live preview validates the configuration before it is saved. Formula compone
 
 ### Install a release
 
-1. Download `wealthfolio-activity-statistics-builder-addon-1.1.1.zip` from the latest GitHub Release.
+1. Download `wealthfolio-activity-statistics-builder-addon-<version>.zip` from the latest GitHub Release.
 2. Open the add-on management page in Wealthfolio.
 3. Choose the option to install or sideload an add-on from a ZIP file.
 4. Select the downloaded ZIP without extracting it.
@@ -103,8 +103,27 @@ pnpm bundle
 The installable archive is generated at:
 
 ```text
-dist/wealthfolio-activity-statistics-builder-addon-1.1.1.zip
+dist/wealthfolio-activity-statistics-builder-addon-<version>.zip
 ```
+
+## Automated GitHub releases
+
+The workflow in [`.github/workflows/release.yml`](.github/workflows/release.yml) publishes a release whenever a version tag such as `v1.2.0` is pushed. It:
+
+1. Checks that the tag, `package.json`, and `manifest.json` use the same version.
+2. Installs locked dependencies and runs type checking, tests, and manifest validation.
+3. Builds the production add-on and its installable ZIP.
+4. Generates a matching `.sha256` checksum file.
+5. Creates the GitHub Release, generates release notes, and uploads both files.
+
+To publish a new version, update the version in both JSON files, commit and push the change, then create and push the matching tag:
+
+```powershell
+git tag -a v1.2.0 -m "Activity Statistics Builder v1.2.0"
+git push origin v1.2.0
+```
+
+The workflow uses the repository's built-in `GITHUB_TOKEN`; no personal access token or additional GitHub secret is required.
 
 ## Permissions and privacy
 
