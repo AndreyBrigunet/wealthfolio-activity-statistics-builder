@@ -87,7 +87,7 @@ The minimum supported Wealthfolio version is **3.6.2**.
 
 Requirements:
 
-- Node.js 20 or newer
+- Node.js 24 recommended (22.13 or newer is required by pnpm 11)
 - pnpm
 - Wealthfolio 3.6.2 or newer for runtime testing
 
@@ -124,6 +124,8 @@ git push origin v1.2.0
 ```
 
 The workflow uses the repository's built-in `GITHUB_TOKEN`; no personal access token or additional GitHub secret is required.
+
+If an automatic run fails because the workflow itself needs a correction, push the correction first, then open **Actions → Release add-on → Run workflow** and enter the existing tag. The manual run checks out and builds that exact tag, so the tag does not need to be deleted or moved.
 
 ## Permissions and privacy
 
