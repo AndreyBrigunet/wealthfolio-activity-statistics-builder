@@ -1,6 +1,6 @@
 {
   "name": "wealthfolio-activity-statistics-builder-addon",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Build persistent statistics dashboards from Wealthfolio activities",
   "type": "module",
   "packageManager": "pnpm@11.20.0",
