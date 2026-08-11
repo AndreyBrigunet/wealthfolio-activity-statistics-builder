@@ -1,0 +1,40 @@
+{
+  "id": "activity-statistics-builder",
+  "name": "Activity Statistics Builder",
+  "version": "1.1.1",
+  "description": "Build persistent statistics dashboards from existing Wealthfolio activities.",
+  "author": "Andre",
+  "main": "dist/addon.js",
+  "sdkVersion": "3.6.2",
+  "minWealthfolioVersion": "3.6.2",
+  "enabled": true,
+  "hostDependencies": {
+    "@tanstack/react-query": "^5.90.0",
+    "@wealthfolio/addon-sdk": "^3.6.2",
+    "@wealthfolio/ui": "^3.6.0",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.561.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.7.0"
+  },
+  "permissions": [
+    {
+      "category": "accounts",
+      "functions": [{ "name": "getAll", "isDeclared": true, "isDetected": false }],
+      "purpose": "Read account names and identifiers for filters and drill-down labels."
+    },
+    {
+      "category": "activities",
+      "functions": [{ "name": "getAll", "isDeclared": true, "isDetected": false }],
+      "purpose": "Read existing activities to calculate user-configured statistics."
+    },
+    {
+      "category": "events",
+      "functions": [{ "name": "onUpdateComplete", "isDeclared": true, "isDetected": false }],
+      "purpose": "Refresh statistics after Wealthfolio finishes updating the portfolio."
+    }
+  ],
+  "keywords": ["wealthfolio", "addon"],
+  "license": "MIT"
+}
