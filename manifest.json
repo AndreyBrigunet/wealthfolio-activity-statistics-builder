@@ -1,7 +1,7 @@
 {
   "id": "activity-statistics-builder",
   "name": "Activity Statistics Builder",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Build persistent statistics dashboards from existing Wealthfolio activities.",
   "author": "Andre",
   "main": "dist/addon.js",
